@@ -1,7 +1,7 @@
-import mongoose from 'mongoose'
+import { Schema, model } from 'mongoose'
 import bcrypt from 'bcryptjs'
 
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
   {
     email: {
       type: String,
@@ -63,4 +63,4 @@ userSchema.methods.checkPassword = function(password) {
   })
 }
 
-export const User = mongoose.model('user', userSchema)
+export const User = model('user', userSchema)

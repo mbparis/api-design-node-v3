@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
+import { Schema, SchemaTypes, model } from 'mongoose'
 
-const listSchema = new mongoose.Schema(
+const listSchema = new Schema(
   {
     name: {
       type: String,
@@ -10,7 +10,7 @@ const listSchema = new mongoose.Schema(
     },
     description: String,
     createdBy: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: SchemaTypes.ObjectId,
       ref: 'user',
       required: true
     }
@@ -20,4 +20,4 @@ const listSchema = new mongoose.Schema(
 
 listSchema.index({ user: 1, name: 1 }, { unique: true })
 
-export const List = mongoose.model('list', listSchema)
+export const List = model('list', listSchema)
