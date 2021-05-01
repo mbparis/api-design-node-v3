@@ -16,7 +16,7 @@
     "start": "node dist/index.js",
     "lint": "eslint . --ext .ts",
     "type-check": "tsc",
-    "transpile": "babel src --out-dir dist"
+    "transpile": "babel src --out-dir dist --extensions \".ts,.js\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
