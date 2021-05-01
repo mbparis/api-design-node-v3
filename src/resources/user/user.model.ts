@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model,  Document  } from 'mongoose'
 import bcrypt from 'bcryptjs'
 
-const userSchema = new Schema(
+const userSchema: Schema = new Schema(
   {
     email: {
       type: String,
@@ -35,7 +35,19 @@ const userSchema = new Schema(
   { timestamps: true }
 )
 
-userSchema.pre('save', function(next) {
+interface IUser extends Document {
+  email: string;
+  password: string;
+  settings: IUserSettings
+}
+
+interface IUserSettings {
+  theme: string,
+  notifications: boolean,
+  compactMode: boolean
+}
+
+userSchema.pre<IUser>('save', function(next) {
   if (!this.isModified('password')) {
     return next()
   }
@@ -63,4 +75,4 @@ userSchema.methods.checkPassword = function(password) {
   })
 }
 
-export const User = model('user', userSchema)
+export const User  = model<IUser>('user', userSchema)

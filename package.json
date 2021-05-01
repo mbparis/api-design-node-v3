@@ -19,6 +19,7 @@
     "transpile": "babel src --out-dir dist --extensions \".ts,.js\""
   },
   "dependencies": {
+    "@types/mongoose": "^5.10.5",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",

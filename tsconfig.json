@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    // Ensure Babel can safely transpile files inthe Typescirpt "@babel/plugin-proposal-object-rest-spread"
+    "isolatedModules": true,
     "noEmit": true
   },
   "include": ["src/**/*.ts"],
